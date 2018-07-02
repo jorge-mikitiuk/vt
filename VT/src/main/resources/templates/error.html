@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: header">
+</head>
+<body>
+	<div th:replace="layout :: menu"></div>
+	<h1>Something went wrong!</h1>
+	<h2>Our Engineers are on it</h2>
+	<a href="/vt">Go Home</a>
+
+	<table>
+		<tr th:each="var : ${#vars}">
+			<td th:text="${var.key}"></td>
+			<td th:text="${var.value}"></td>
+		</tr>
+	</table>
+
+	<div th:inline="text">Hello '[[${#httpServletRequest.remoteUser}]]', you do not have permission to access this page.</div>
+	<div th:replace="layout :: footer"></div>
+</body>
+</html>

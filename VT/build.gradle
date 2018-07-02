@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+	
+repositories {
+   	mavenLocal()
+	maven { url "http://dgsiaf-nexus.mecon.ar:8081/repository/dgsiaf/" }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+	main {
+        java {
+       	    srcDirs = ['src/main/java']
+       	}
+       	resources{
+       	    srcDirs = ['src/main/resources','src/main/config']
+       	}
+   	}
+   	test {
+       	java {
+            srcDirs = ['src/test/java']
+       	}
+       	resources {
+           	srcDirs = ['src/test/resources']
+       	}	
+   	}
+}	
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:2.0.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-security:2.0.3.RELEASE")
+    compile("org.springframework.boot:spring-boot-devtools:2.0.3.RELEASE")
+    compile("com.rometools:rome:1.10.0")
+    compile("org.webjars:bootstrap:4.1.1")
+}
+
